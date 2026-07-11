@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest an idea or improvement for the app.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep in mind the project scope: an offline card vault. Payment
+        features (NFC, Apple Pay, transactions) are out of scope by design.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the need or friction, not just the solution.
+      placeholder: When I have many loyalty cards it is hard to find...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about.
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Wallet list
+        - Card detail
+        - Card editor
+        - Sections / tabs
+        - Settings / security
+        - Other
+    validations:
+      required: true
