@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 @main
@@ -12,5 +13,6 @@ struct MyWalletIDsApp: App {
                     .font(.title2.bold())
             }
         }
+        .modelContainer(for: [Card.self, CardField.self, WalletSection.self])
     }
 }
