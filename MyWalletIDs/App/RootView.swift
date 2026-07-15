@@ -1,11 +1,32 @@
+import SwiftData
 import SwiftUI
 
-/// Root navigation shell. For now a single wallet containing every card;
-/// user-defined sections will later turn this into a TabView.
+/// Switches the navigation shell based on the user's sections:
+/// - No visible sections → a single wallet with every card, no tab bar.
+/// - One or more visible sections → a TabView with one tab per section.
 struct RootView: View {
+    @Query(sort: \WalletSection.orderIndex) private var sections: [WalletSection]
+
+    private var visibleSections: [WalletSection] {
+        sections.filter(\.isVisible)
+    }
+
     var body: some View {
-        NavigationStack {
-            WalletView(section: nil)
+        if visibleSections.isEmpty {
+            NavigationStack {
+                WalletView(section: nil)
+            }
+        } else {
+            TabView {
+                ForEach(visibleSections) { section in
+                    NavigationStack {
+                        WalletView(section: section)
+                    }
+                    .tabItem {
+                        Label(section.name, systemImage: section.iconSystemName)
+                    }
+                }
+            }
         }
     }
 }
