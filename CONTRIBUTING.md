@@ -5,12 +5,18 @@ you need to get a change from idea to merged PR.
 
 ## Setup
 
-1. Install the toolchain:
+1. Fork the repository on GitHub.
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/<your-username>/myWalletIDs-ios.git
+   cd myWalletIDs-ios
+   ```
+3. Install the toolchain:
    ```bash
    brew install xcodegen
    ```
-   You also need Xcode 15+ (the app targets iOS 17.0).
-2. Generate and open the project:
+   (You also need Xcode 15+ — the app targets iOS 17.0.)
+4. Generate and open the project:
    ```bash
    xcodegen generate
    open MyWalletIDs.xcodeproj
